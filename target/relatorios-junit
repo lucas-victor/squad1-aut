@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="15.74948">
+<testcase classname="Pesquisar dados no google." name="Realiza pesquisa no google." time="15.74948">
+<system-out><![CDATA[Given Acesso o site google..................................................passed
+When preencho o campo Pesquisa com valor "teste"............................passed
+And eu clicar no botao pesquisar............................................passed
+Then visualizo o resultado da pesquisa......................................passed
+]]></system-out>
+</testcase>
+</testsuite>
