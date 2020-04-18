@@ -18,12 +18,12 @@ import cucumber.api.java.Before;
 
 public class ElementMap {
 
-	// Variáveis.
+	// Variï¿½veis.
 	public static WebDriver driver;
 	final static int CHROMEDRIVER = 1;
 	final static int FIREFOXDRIVER = 2;
 
-	// Métodos
+	// Mï¿½todos
 	@Test
 	public static void efetuaLogin() {
 
@@ -49,7 +49,7 @@ public class ElementMap {
 
 	}
 
-	// clica no botão Pesquisa
+	// clica no botï¿½o Pesquisa
 	@Test
 	public static void clicaBotaoPesquisa() {
 
@@ -80,7 +80,7 @@ public class ElementMap {
 		}
 	}
 
-	// Configuração dos hooks para executar após todos os cenários.
+	// Configuraï¿½ï¿½o dos hooks para executar apï¿½s todos os cenï¿½rios.
 	@Before
 	public static void msgStart() {
 		System.out.println("iniciando teste.");
