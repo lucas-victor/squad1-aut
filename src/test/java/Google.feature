@@ -1,4 +1,4 @@
-@Funcionais
+@Funcionais @TesteAmbiente
 Feature: Pesquisar dados no google.
   Como um usuario
   eu quero pesquisar dados no google
@@ -22,6 +22,6 @@ Background:
 #    And eu clicar no botao pesquisar
 #    Then visualizo o resultado da pesquisa
 #Examples:
-#	| valor                   	  |
-#	| "automacao fora da caixa"   |
-#   | "automacao fora da caixa 2" |
+#	| valor         |
+#	| "automacao"   |
+# | "automacao 2" |

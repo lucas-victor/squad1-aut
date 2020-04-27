@@ -2,6 +2,10 @@ package br.steps;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -14,6 +18,7 @@ import br.runners.Apoio;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.deps.com.thoughtworks.xstream.io.binary.Token.Formatter;
 //import junit.framework.Assert;
 
 public class ElementMap {
@@ -28,7 +33,7 @@ public class ElementMap {
 	public static void efetuaLogin() {
 
 		// instancia o driver. 1 = chrome, 2 = firefox
-		driver = Apoio.initDriver(FIREFOXDRIVER);
+		driver = Apoio.initDriver(CHROMEDRIVER);
 
 		// maximiza tela
 		// driver.manage().window().maximize();
@@ -36,7 +41,7 @@ public class ElementMap {
 		// Acessa a url.
 		driver.get("https://www.google.com.br/");
 
-		Apoio.wait(2000);
+		Apoio.wait(1000);
 
 	}
 
@@ -82,16 +87,21 @@ public class ElementMap {
 
 	// Configura��o dos hooks para executar ap�s todos os cen�rios.
 	@Before
-	public static void msgStart() {
+	public static void msgStart(Scenario cenario) {
+		
+		cenario.getId();
 		System.out.println("iniciando teste.");
 	}
 
 	@After(order = 1) // @After(order = 1) ou @After(order = 1, value = { "@Funcionais" })
 	public static void screenshot(Scenario cenario) {
+		Date data = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH.mm.ss");
+
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		Apoio.wait(1000);
 		try {
-			FileUtils.copyFile(file, new File("target/screenshot/" + cenario.getId() + ".jpg"));
+			FileUtils.copyFile(file, new File("target/screenshot/" + cenario.getId() + dateFormat.format(data) + ".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

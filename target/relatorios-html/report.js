@@ -9,11 +9,15 @@ formatter.feature({
     {
       "line": 1,
       "name": "@Funcionais"
+    },
+    {
+      "line": 1,
+      "name": "@TesteAmbiente"
     }
   ]
 });
 formatter.before({
-  "duration": 86200,
+  "duration": 103400,
   "status": "passed"
 });
 formatter.background({
@@ -32,7 +36,7 @@ formatter.match({
   "location": "GoogleSteps.realizaOLoginNoSite()"
 });
 formatter.result({
-  "duration": 7662717800,
+  "duration": 8091359800,
   "status": "passed"
 });
 formatter.scenario({
@@ -68,29 +72,29 @@ formatter.match({
   "location": "GoogleSteps.preenchoCampoPesquisa(String)"
 });
 formatter.result({
-  "duration": 1128776600,
+  "duration": 1383148500,
   "status": "passed"
 });
 formatter.match({
   "location": "GoogleSteps.clicaBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 1177219600,
+  "duration": 1607141200,
   "status": "passed"
 });
 formatter.match({
   "location": "GoogleSteps.visualizaPesquisa()"
 });
 formatter.result({
-  "duration": 312187000,
+  "duration": 318039500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1067692000,
+  "duration": 1264518100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4400800600,
+  "duration": 4130139500,
   "status": "passed"
 });
 });

@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tagg
+@tag
 Feature: Realiza consulta por ID no portal Consulta Plataformas 
   Como um usuário
   eu quero realizar uma consulta por ID
@@ -25,7 +25,7 @@ Feature: Realiza consulta por ID no portal Consulta Plataformas
 Background:
 	 Given que estou logado no site
   
-  @tagg1
+  @tag1
   Scenario Outline: Realiza consulta por ID com sucesso.
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com ID <id>
@@ -35,10 +35,10 @@ Background:
     And validar as informacoes da OCS Huawei OCS01 <idresult>
   
    Examples: 
-      |  id  			 									  	|   idresult   |
-      | "12345"     										|    "ID"      |
-      | "123456"    										|    "ID"      |
-      | "4 planos suplementares"        |    "ID"      |
+      |  id  			 |   idresult   |
+      | 12345      |    "ID"      |
+      | 123456     |    "ID"      |
+  
  
       
       

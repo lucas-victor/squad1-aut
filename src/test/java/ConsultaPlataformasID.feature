@@ -16,36 +16,30 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@tagg
 Feature: Realiza consulta por ID no portal Consulta Plataformas 
   Como um usuário
-  eu quero realizar um consulta por ID
+  eu quero realizar uma consulta por ID
   no portal Consulta Plataformas.
   
 Background:
 	 Given que estou logado no site
   
-  @tag1
-  Scenario: Realiza consulta por ID
+  @tagg1
+  Scenario Outline: Realiza consulta por ID com sucesso.
     And acesso o menu Consulta Plataformas
-    When preencho os dados da tela
+    When preencho os dados da tela com ID <id>
+    And seleciono a plataforma OCS Huawei OCS01
     And clico no botao Pesquisar
     Then devo ver os dados exibidos
-    And validar as informacoes
-
+    And validar as informacoes da OCS Huawei OCS01 <idresult>
   
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    And acesso o menu Consulta Plataformas
-    When eu preencher o campo <terminal>
-    And selecionar o tipo de consulta <tpConsulta>
-    And clicar no botao Pesquisar
-    Then devo ver o <resultado>
-
-    Examples: 
-      |  terminal  | tpConsulta |  resultado  |
-      | 3133932008 |    "ID"    | 	"success" |
-      | 3133932008 |    "ID"    | 	"Fail"    |
+   Examples: 
+      |  id  			 									  	|   idresult   |
+      | "12345"     										|    "ID"      |
+      | "123456"    										|    "ID"      |
+      | "4 planos suplementares"        |    "ID"      |
+ 
       
       
       
