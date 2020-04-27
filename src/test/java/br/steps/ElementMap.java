@@ -4,27 +4,24 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import br.runners.Apoio;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.deps.com.thoughtworks.xstream.io.binary.Token.Formatter;
-//import junit.framework.Assert;
+
 
 public class ElementMap {
 
 	// Vari�veis.
 	public static WebDriver driver;
+	public static Scenario scenario;
 	final static int CHROMEDRIVER = 1;
 	final static int FIREFOXDRIVER = 2;
 
@@ -75,21 +72,22 @@ public class ElementMap {
 	
 	// Print screen
 	@Test
-	public static void print(String nomePrint) {
+	public static void print(String nomePrint) {	
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		Apoio.wait(1000);
 		try {
-			FileUtils.copyFile(file, new File("target/screenshot/_" + nomePrint + ".jpg"));
+			FileUtils.copyFile(file, new File("target/relatorios/screenshot/_" + scenario.getId() + nomePrint + ".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	
 	// Configura��o dos hooks para executar ap�s todos os cen�rios.
-	@Before
-	public static void msgStart(Scenario cenario) {
-		
-		cenario.getId();
+	
+	@Before(order = 0)
+	public void msgStart(Scenario cenario) {
+		scenario = cenario;
 		System.out.println("iniciando teste.");
 	}
 
@@ -101,7 +99,7 @@ public class ElementMap {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		Apoio.wait(1000);
 		try {
-			FileUtils.copyFile(file, new File("target/screenshot/" + cenario.getId() + dateFormat.format(data) + ".jpg"));
+			FileUtils.copyFile(file, new File("target/relatorios/screenshot/" + cenario.getId() + dateFormat.format(data) + ".jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

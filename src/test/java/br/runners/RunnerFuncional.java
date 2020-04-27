@@ -27,6 +27,7 @@ import cucumber.api.junit.Cucumber;
 		)
 
 public class RunnerFuncional {
+	
 	@AfterClass
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(new File(Apoio.getReportConfigPath()));	

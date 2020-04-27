@@ -17,7 +17,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 103400,
+  "duration": 108800,
   "status": "passed"
 });
 formatter.background({
@@ -36,7 +36,7 @@ formatter.match({
   "location": "GoogleSteps.realizaOLoginNoSite()"
 });
 formatter.result({
-  "duration": 8091359800,
+  "duration": 7839391800,
   "status": "passed"
 });
 formatter.scenario({
@@ -72,29 +72,29 @@ formatter.match({
   "location": "GoogleSteps.preenchoCampoPesquisa(String)"
 });
 formatter.result({
-  "duration": 1383148500,
+  "duration": 1361821800,
   "status": "passed"
 });
 formatter.match({
   "location": "GoogleSteps.clicaBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 1607141200,
+  "duration": 1605290600,
   "status": "passed"
 });
 formatter.match({
   "location": "GoogleSteps.visualizaPesquisa()"
 });
 formatter.result({
-  "duration": 318039500,
+  "duration": 351459400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1264518100,
+  "duration": 1270620300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4130139500,
+  "duration": 4112690500,
   "status": "passed"
 });
 });
