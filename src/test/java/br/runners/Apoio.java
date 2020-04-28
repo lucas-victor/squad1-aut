@@ -53,11 +53,7 @@ public class Apoio {
 
 	public static String getReportConfigPath() {
 		String reportConfigPath = System.getProperty("user.dir") + "\\src\\test\\resources\\configs\\extent-config.xml";
-		if (reportConfigPath != null)
-			return reportConfigPath;
-		else
-			throw new RuntimeException(
-					"Report Config Path not specified - extent-config.xml");
+		return reportConfigPath;
 	}
 
 	// metodo aguardar tempo em mili seconds

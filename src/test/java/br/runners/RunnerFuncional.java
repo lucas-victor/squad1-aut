@@ -30,6 +30,13 @@ public class RunnerFuncional {
 	
 	@AfterClass
 	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File(Apoio.getReportConfigPath()));	
+		Reporter.loadXMLConfig(new File(Apoio.getReportConfigPath()));
+		Reporter.setSystemInfo("User Name", "Squadra");
+		Reporter.setSystemInfo("Time zone", System.getProperty("user.timezone"));
+		Reporter.setSystemInfo("Selenium", "3.11.0");
+		Reporter.setSystemInfo("Cucumber", "1.2.5");
+		Reporter.setSystemInfo("JUnit", "5");
+		Reporter.setSystemInfo("Java", "1.8.0_251");
+		Reporter.setSystemInfo("Navegador", "Chrome");
 	}
 }
