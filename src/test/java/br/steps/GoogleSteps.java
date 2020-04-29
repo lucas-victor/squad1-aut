@@ -17,9 +17,9 @@ public class GoogleSteps {
 	}
 
 	@When("^preencho o campo Pesquisa com valor \"([^\"]*)\"$")
-	public void preenchoCampoPesquisa(String arg1) throws Throwable {
+	public void preenchoCampoPesquisa(String terminal) throws Throwable {
 
-		ElementMap.preencheCampoPesquisa(arg1);;
+		ElementMap.preencheCampoPesquisa(terminal);;
 	}
 	
 	

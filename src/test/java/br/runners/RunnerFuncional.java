@@ -4,9 +4,7 @@ import java.io.File;
 
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
-
 import com.cucumber.listener.Reporter;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -35,8 +33,9 @@ public class RunnerFuncional {
 		Reporter.setSystemInfo("Time zone", System.getProperty("user.timezone"));
 		Reporter.setSystemInfo("Selenium", "3.11.0");
 		Reporter.setSystemInfo("Cucumber", "1.2.5");
-		Reporter.setSystemInfo("JUnit", "5");
+		Reporter.setSystemInfo("JUnit", "1.2.6");
 		Reporter.setSystemInfo("Java", "1.8.0_251");
 		Reporter.setSystemInfo("Navegador", "Chrome");
+		
 	}
 }
