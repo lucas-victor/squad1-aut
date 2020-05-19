@@ -19,14 +19,28 @@ public class ConsultaPlataformasIdSteps {
 
 	@When("^preencho os dados da tela com ID \"([^\"]*)\"$")
 	public void preenchoOsDadosDaTelaComID(String id) throws Throwable {
+		ElementMap.preencheRadioBtn("id");
 	    ElementMap.preencheCampoTerminal(id);
 	}
 
-	@When("^seleciono a plataforma OCS Huawei OCS(\\d+)$")
-	public void selecionoAPlataformaOCSHuaweiOCS(int arg1) throws Throwable {
-	    ElementMap.clickTreeGSM();
-	    ElementMap.clickTreeGSM_OCSHuawei();
-	    ElementMap.clickTreeGSM_OCSHuawei_Ocs01();
+	@When("^seleciono a plataforma \"([^\"]*)\"$")
+	public void selecionoAPlataforma(String plat) throws Throwable {
+		
+		switch (plat) {
+		case "OCS Huawei OCS01":	
+			ElementMap.clickTreeGSM();
+		    ElementMap.clickTreeGSM_OCSHuawei();
+		    ElementMap.clickTreeGSM_OCSHuawei_Ocs01();
+			break;
+			
+		case "HLR43":
+			System.out.println("Selecionada plataforma HLR43.");
+			break;
+		
+		default:
+			break;
+		}
+			
 	}
 
 	@When("^clico no botao Pesquisar$")
@@ -36,12 +50,16 @@ public class ConsultaPlataformasIdSteps {
 
 	@Then("^devo ver os dados exibidos$")
 	public void devoVerOsDadosExibidos() throws Throwable {
-		ElementMap.validaResultadoOCS();
+		//ElementMap.validaResultadoOCSid();
 	}
 
 	@Then("^validar as informacoes da OCS Huawei OCS(\\d+) \"([^\"]*)\"$")
-	public void validarAsInformacoesDaOCSHuaweiOCS(int arg1, String idValid) throws Throwable {
-	    ElementMap.validaResultadoOCS();
+	public void validarAsInformacoesDaOCSHuaweiOCS(int arg1, String tipo) throws Throwable {
+		if ("cpf".equalsIgnoreCase(tipo) || "cnpj".equalsIgnoreCase(tipo)) {
+			ElementMap.validaResultadoOCScpf();
+		}else{
+			ElementMap.validaResultadoOCSid();
+		}
 	}
 
 

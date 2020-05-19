@@ -1,4 +1,4 @@
-@Funcionais
+@ConsultaID @ConsultaALL
 Feature: Realiza consulta por ID no portal Consulta Plataformas 
   Como um usuário
   eu quero realizar consultas por ID
@@ -7,19 +7,20 @@ Feature: Realiza consulta por ID no portal Consulta Plataformas
 Background:
 	 Given que estou logado no site
   
-  @Funcionais
+  @ConsultaID
   Scenario Outline: Realiza consulta por ID com sucesso.
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com ID <id>
-    And seleciono a plataforma OCS Huawei OCS01
+    And seleciono a plataforma <plataforma> 
     And clico no botao Pesquisar
     Then devo ver os dados exibidos
     And validar as informacoes da OCS Huawei OCS01 <idresult>
   
    Examples: 
-      |  							id  					  	|   				idresult   						|
-      | "55313393211"     							|    "ID consulta sem oferta"     |
- 
+    |  							id  					  	|     plataforma        |  idresult   |
+    | "12345"     										|  "OCS Huawei OCS01"		|     "id"    |
+ 		| "12345678901234567890" 					|  "OCS Huawei OCS01"   |     "id"    |
+ 		| "55313393211"     							|  "OCS Huawei OCS01"   |     "id" 		|
       
       
       

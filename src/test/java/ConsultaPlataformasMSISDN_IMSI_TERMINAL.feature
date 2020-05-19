@@ -1,4 +1,4 @@
-@tagg
+@ConsultaMSISDN_IMSI_TER @ConsultaALL
 Feature: Realiza consulta por MSISDN/IMSI/TERMINAL no portal Consulta Plataformas 
   Como um usuário
   eu quero realizar uma consulta por MSISDN / IMSI / TERMINAL
@@ -17,9 +17,9 @@ Background:
     And validar as informacoes da plataforma <msisdnresult>
   
    Examples: 
-      |  							msisdn  		           |		plataforma			|     msisdnresult    |
-      | "numerico 11 digitos"                |		"HLR Nokia"			|    "ID"             |
-      | "numerico 13 digitos se iniciado 55" |		"SMSC03" 				|    "ID"             |
+      |  							msisdn  		         							     |		plataforma			|     msisdnresult    |
+      | "numerico 11 digitos - 12345678901"                  |		"HLR Nokia"			|    "ID"             |
+      | "numerico 13 digitos se iniciado 55 - 5534567890123" |		"SMSC03" 				|    "ID"             |
 
   
   @tagg2
@@ -32,9 +32,9 @@ Background:
     And validar as informacoes da OCS Huawei OCS01 <imsiresult>
   
    Examples: 
-      | 				 	imsi  				 		  	|   plataforma   	  	|   imsiresult    |
-      | "num 15 dig iniciado 724"       |		"HLR Nokia"   	  |    "ID"         |
-      | "num 15 dig iniciado 724"       |		"LSMS02"					|    "ID"         |
+      | 				 	imsi  				 		  										|   plataforma   	  	|   imsiresult    |
+      | "num 15 dig iniciado 724 - 724456789012345"       |		"HLR Nokia"   	  |    "ID"         |
+      | "num 15 dig iniciado 724 - 724456789012345"       |		"LSMS02"					|    "ID"         |
       
  
   @tagg3
@@ -47,6 +47,6 @@ Background:
     And validar as informacoes da OCS Huawei OCS01 <imsiresult>
   
    Examples: 
-      | 				 	imsi  				 		  	|    plataforma   		|   imsiresult    |
-      | "num 15 dig iniciado 724"       |			"Tropico"   	  |    "ID"         |
-      | "num 15 dig iniciado 724"       |			"VMP05"		  		|    "ID"         |
+      | 				 	imsi  				 		|    plataforma   		|   imsiresult    |
+      | "num 10 dig - 1234567890"   |			"Tropico"   	  |    "ID"         |
+      | "num 10 dig - 7244567890"   |			"VMP05"		  		|    "ID"         |
