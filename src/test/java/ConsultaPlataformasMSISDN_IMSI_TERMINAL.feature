@@ -18,8 +18,8 @@ Background:
   
    Examples: 
       |  			 msisdn			  	  |		     plataforma		      	|     msisdnresult        |
-      | "12345678901"           |		"VMS Novitech VMS04"			|      "msisdn"           |
-      | "5534567890123"				  |		"VMS Novitech VMS04" 			|      "msisdn"           |
+      | "12345678901"           |		"VMS Novitech VMS04"			|      "msisdn_1"         |
+      | "5534567890123"				  |		"VMS Novitech VMS04" 			|      "msisdn_2"         |
 
   
   @ConsultaMSISDN_IMSI_TER

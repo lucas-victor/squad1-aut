@@ -27,24 +27,17 @@ public class ConsultaPlataformasMsisdnImsiTerSteps {
 	@Then("^validar as informacoes da consulta \"([^\"]*)\"$")
 	public void validarAsInformacoesDaConsulta(String result) throws Throwable {
 	    	
-		switch (result) {
-		case "msisdn":	
-			ElementMap.validaResultadoVMSNovitech();
-			break;
-			
-		case "imsi":
+		if (result.startsWith("msisdn")) {
+			ElementMap.validaResultadoVMSNovitech(result);
+		}
+		else if (result.startsWith("imsi")) {
 			ElementMap.validaResultadoSmartKeyHuaweiLSMS01();
-			break;
-			
-		case "terminal":
+		}
+		else if (result.startsWith("terminal")) {
 			//quando tiver fixa no banco, construir o metodo para o terminal.
 			//Não é o foco da demanda atual.
 			System.out.println("Falta construir a validacao do terminal");
-			break;
-		
-		default:
-			break;
 		}
-		
+				
 	}
 }

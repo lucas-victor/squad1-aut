@@ -574,10 +574,15 @@ public class ElementMap {
 	}
 
 	
-	public static void validaResultadoVMSNovitech() {
+	public static void validaResultadoVMSNovitech(String resultCucumber) {
 		
 		List<String> resultVms04 = new ArrayList<String>();
-		resultVms04.add("MSISDN 5512345678901");
+		if (resultCucumber.equalsIgnoreCase("msisdn_1")) {
+			resultVms04.add("MSISDN 5512345678901");
+		}else if (resultCucumber.equalsIgnoreCase("msisdn_2")) {
+			resultVms04.add("MSISDN 5534567890123");
+		}
+		
 		resultVms04.add("Plano Pré-Pago");
 		resultVms04.add("Código de Pacote 55619");
 		resultVms04.add("Serviço -");
