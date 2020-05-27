@@ -1,5 +1,6 @@
 package br.steps;
 
+import br.runners.Apoio;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -33,8 +34,16 @@ public class ConsultaPlataformasIdSteps {
 		    ElementMap.clickTreeGSM_OCSHuawei_Ocs01();
 			break;
 			
-		case "HLR43":
-			System.out.println("Selecionada plataforma HLR43.");
+		case "VMS Novitech VMS04":
+			ElementMap.clickTreeGSM();
+			ElementMap.clickTreeGSM_VMSnovitech();
+			ElementMap.clickTreeGSM_VMSnovitech_VMS04();
+			break;
+			
+		case "SmartKeyHuawei LSMS01":
+			ElementMap.clickTreeGSM();
+			ElementMap.clickTreeGSM_SmartKeyHuawei();
+			ElementMap.clickTreeGSM_SmartKeyHuawei_LSMS01();
 			break;
 		
 		default:
@@ -55,6 +64,7 @@ public class ConsultaPlataformasIdSteps {
 
 	@Then("^validar as informacoes da OCS Huawei OCS(\\d+) \"([^\"]*)\"$")
 	public void validarAsInformacoesDaOCSHuaweiOCS(int arg1, String tipo) throws Throwable {
+		Apoio.wait(4000);
 		if ("cpf".equalsIgnoreCase(tipo) || "cnpj".equalsIgnoreCase(tipo)) {
 			ElementMap.validaResultadoOCScpf();
 		}else{

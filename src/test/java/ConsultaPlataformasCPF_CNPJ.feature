@@ -19,8 +19,7 @@ Background:
    Examples: 
     |  							cpf  			  	|     plataforma        |   		cpfresult	      |
     | "07800568710" 				  		|  "OCS Huawei OCS01"		|       "cpf"   				|
- 		| "01234567890"      					|  "OCS Huawei OCS01"   |   		"cpf"						|
- 		
+ 		| "07800568710" 				  		|  "OCS Huawei OCS01"		|       "cpf"   				|
 
   
   @ConsultaCPFCNPJ
@@ -35,4 +34,3 @@ Background:
    Examples: 
       |  cnpj  							    |     plataforma        |  	 cnpjresult       |
       | "12345678901234"        |  "OCS Huawei OCS01"		|       "cnpj"     	  |
-      | "123456"     				    |  "OCS Huawei OCS01"		|   	  "cnpj"	      |

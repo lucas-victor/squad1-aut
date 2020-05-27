@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "src/test/java/",    //Caminho onde estão as features do cucumber.
 	    glue = "br.steps",    //Pacote onde estão as classes de steps.
-		tags = {"@ConsultaID", "~@ignore"},    //Teste marcados com a tag serão executados
+		tags = {"@ConsultaALL", "~@ignore"},    //Teste marcados com a tag serão executados
 		plugin = {"pretty", "html:target/relatorios", //formatos do relatório html, json, xml.
 				"json:target/relatorios/relatorios-json",
 				"junit:target/relatorios/relatorios-junit",

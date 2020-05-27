@@ -7,15 +7,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.html5.LocalStorage;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
 
 import br.runners.Apoio;
@@ -57,14 +61,22 @@ public class ElementMap {
 		// maximiza tela
 		// driver.manage().window().maximize();
 
+		// 30 sec implcity wait
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		// Acessa a url.
 		driver.get("http://10.121.216.69:7003/sisativacao/#/home");
-		Apoio.wait(1000);
+		
+		//add token na url.
+		LocalStorage local = ((WebStorage) driver).getLocalStorage();
+		local.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsIkF1dGgiOnsiZW1haWwiOiJwZWRyby5jb3N0YUBzcXVhZHJhLmNvbS5iciIsImxvZ2luIjoicGVkcm8iLCJuYW1lIjoicGVkcm8iLCJwcm9maWxlIjoiQURNSU5JU1RSQURPUiAtIEFETUlOSVNUUkFET1IiLCJyb2xlcyI6WyJST0xFX1JBU1RSRUFCSUxJREFERV9WSUVXIiwiUk9MRV9SRVNQT1NUQV9WSUVXX1VQREFURSIsIlJPTEVfUkVTUE9TVEFfRVNQRUNJRklDQV9WSUVXX1VQREFURSIsIlJPTEVfRUxFTUVOVE9fUkVERV9WSUVXX1VQREFURSIsIlJPTEVfQVVESVRPUklBX1ZJRVciLCJST0xFX01BUEVBTUVOVE9fVklFV19VUERBVEUiLCJST0xFX0NPTkZJR1VSQUNBT19ISVNUT1JJQ09fVklFV19VUERBVEUiLCJST0xFX0xJTVBBX0NBQ0hFX1ZJRVdfVVBEQVRFIiwiUk9MRV9QRVJGSUxfVklFV19VUERBVEUiLCJST0xFX0hMUl9HVEhMUl9PQ0NGX1ZJRVdfVVBEQVRFIiwiUk9MRV9TUEFfR1RUX0dUU19NQVRfVklFV19VUERBVEUiLCJST0xFX0NOX1BSRUZJWF9HVFRfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xETl9MRElfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xESV9WSUVXX1VQREFURSIsIlJPTEVfVFBfQ1NQT19SU1RfTEROX1ZJRVdfVVBEQVRFIiwiUk9MRV9WUE5fSURfVklFV19VUERBVEUiLCJST0xFX1NBX0FQTl9QRFBJRF9WSUVXX1VQREFURSIsIlJPTEVfQ05fT0NDRl9WSUVXX1VQREFURSIsIlJPTEVfUkVURU5DQU9fSExSX1ZJRVdfVVBEQVRFIiwiUk9MRV9SRVRFTkNBT19DTl9QUkVGSVhPX1ZJRVdfVVBEQVRFIiwiUk9MRV9HVFRfT1BfU0VSVl9OQU1FX1ZJRVdfVVBEQVRFIiwiUk9MRV9ST1VfUExBTk9fQ05fVklFV19VUERBVEUiLCJST0xFX1JFVEVOQ0FPX0NOX1ZJRVdfVVBEQVRFIiwiUk9MRV9QQVJTRVJfU0VSVl9BUFJPVl9WSUVXX1VQREFURSIsIlJPTEVfUEFSU0VSX1BBUkFNX1ZJRVdfVVBEQVRFIiwiUk9MRV9DQVBUQ0hBX1ZJRVciLCJST0xFX0hMUiBOb2tpYV9WSUVXIiwiUk9MRV9TbWFydEtleSBIdWF3ZWlfVklFVyIsIlJPTEVfU01TQyBBY2lzaW9uX1ZJRVciLCJST0xFX1VEUiBOb2tpYV9WSUVXIiwiUk9MRV9WTVMgTm92aXRlY2hfVklFVyIsIlJPTEVfUENSRiBIdWF3ZWlfVklFVyIsIlJPTEVfT0NTIEh1YXdlaV9WSUVXIiwiUk9MRV9JTl9WSUVXIiwiUk9MRV9OR04gUjJfVklFVyIsIlJPTEVfSU1TX1ZJRVciLCJST0xFX1Ryb3BpY29fVklFVyIsIlJPTEVfQU1fTkdOUjJfVklFVyJdfX0.eyJwcm9maWxlIjoiQURNSU5JU1RSQURPUiAtIEFETUlOSVNUUkFET1IiLCJyb2xlcyI6WyJST0xFX1JBU1RSRUFCSUxJREFERV9WSUVXIiwiUk9MRV9SRVNQT1NUQV9WSUVXX1VQREFURSIsIlJPTEVfUkVTUE9TVEFfRVNQRUNJRklDQV9WSUVXX1VQREFURSIsIlJPTEVfRUxFTUVOVE9fUkVERV9WSUVXX1VQREFURSIsIlJPTEVfQVVESVRPUklBX1ZJRVciLCJST0xFX01BUEVBTUVOVE9fVklFV19VUERBVEUiLCJST0xFX0NPTkZJR1VSQUNBT19ISVNUT1JJQ09fVklFV19VUERBVEUiLCJST0xFX0xJTVBBX0NBQ0hFX1ZJRVdfVVBEQVRFIiwiUk9MRV9QRVJGSUxfVklFV19VUERBVEUiLCJST0xFX0hMUl9HVEhMUl9PQ0NGX1ZJRVdfVVBEQVRFIiwiUk9MRV9TUEFfR1RUX0dUU19NQVRfVklFV19VUERBVEUiLCJST0xFX0NOX1BSRUZJWF9HVFRfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xETl9MRElfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xESV9WSUVXX1VQREFURSIsIlJPTEVfVFBfQ1NQT19SU1RfTEROX1ZJRVdfVVBEQVRFIiwiUk9MRV9WUE5fSURfVklFV19VUERBVEUiLCJST0xFX1NBX0FQTl9QRFBJRF9WSUVXX1VQREFURSIsIlJPTEVfQ05fT0NDRl9WSUVXX1VQREFURSIsIlJPTEVfUkVURU5DQU9fSExSX1ZJRVdfVVBEQVRFIiwiUk9MRV9SRVRFTkNBT19DTl9QUkVGSVhPX1ZJRVdfVVBEQVRFIiwiUk9MRV9HVFRfT1BfU0VSVl9OQU1FX1ZJRVdfVVBEQVRFIiwiUk9MRV9ST1VfUExBTk9fQ05fVklFV19VUERBVEUiLCJST0xFX1JFVEVOQ0FPX0NOX1ZJRVdfVVBEQVRFIiwiUk9MRV9QQVJTRVJfU0VSVl9BUFJPVl9WSUVXX1VQREFURSIsIlJPTEVfUEFSU0VSX1BBUkFNX1ZJRVdfVVBEQVRFIiwiUk9MRV9DQVBUQ0hBX1ZJRVciLCJST0xFX0hMUiBOb2tpYV9WSUVXIiwiUk9MRV9TbWFydEtleSBIdWF3ZWlfVklFVyIsIlJPTEVfU01TQyBBY2lzaW9uX1ZJRVciLCJST0xFX1VEUiBOb2tpYV9WSUVXIiwiUk9MRV9WTVMgTm92aXRlY2hfVklFVyIsIlJPTEVfUENSRiBIdWF3ZWlfVklFVyIsIlJPTEVfT0NTIEh1YXdlaV9WSUVXIiwiUk9MRV9JTl9WSUVXIiwiUk9MRV9OR04gUjJfVklFVyIsIlJPTEVfSU1TX1ZJRVciLCJST0xFX1Ryb3BpY29fVklFVyIsIlJPTEVfQU1fTkdOUjJfVklFVyJdLCJpc3MiOiJTcU9pU2lzQXRpdmFjYW8iLCJub21lIjoicGVkcm8iLCJleHAiOjE1OTc2MDQ1MzAsImxvZ2luIjoicGVkcm8iLCJlbWFpbCI6InBlZHJvLmNvc3RhQHNxdWFkcmEuY29tLmJyIn0.Z0iO8Qu47wY-wrzim90RgpjMQFyy_LFHtqhY0Rz3J_Y");
+		driver.navigate().refresh();
+		
 	}
 	
 	@Test
 	public static void clickMenuConsulta() {
-		
+		Apoio.wait(6000);
 		//mouse hover com click no elemento.
 		Actions action = new Actions(driver);
 		WebElement we = driver.findElement(By.xpath("//*[@id=\"slide-out\"]/li[5]/a"));
@@ -110,6 +122,37 @@ public class ElementMap {
 		WebElement gsm = driver.findElement(By.cssSelector(
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
 		gsm.click();
+	}
+	
+	@Test
+	public static void clickTreeGSM_VMSnovitech() {
+		// clica no item GSM da arvore.
+		WebElement vmsNovitech = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > ul > p-treenode:nth-child(5) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
+		vmsNovitech.click();
+	}
+	
+	public static void clickTreeGSM_VMSnovitech_VMS04() {
+		// clica no item GSM da arvore.
+		WebElement vms04 = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > ul > p-treenode:nth-child(5) > li > ul > p-treenode > li > div > div > div"));
+		vms04.click();
+	}
+	
+	@Test
+	public static void clickTreeGSM_SmartKeyHuawei() {
+		// clica no item GSM da arvore.
+		WebElement smartKeyLsms = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > ul > p-treenode:nth-child(2) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
+		smartKeyLsms.click();
+	}
+	
+	@Test
+	public static void clickTreeGSM_SmartKeyHuawei_LSMS01() {
+		// clica no item GSM da arvore.
+		WebElement lsms01 = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > ul > p-treenode:nth-child(2) > li > ul > p-treenode:nth-child(1) > li > div > div > div"));
+		lsms01.click();
 	}
 
 	@Test
@@ -175,7 +218,14 @@ public class ElementMap {
 		vmp07.click();
 	}
 	
-	
+	//incompleto.
+	@Test
+	public static void clickTree___() {
+		// clica no item GSM/HLR da arvore.
+		WebElement vmp07 = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(3) > li > ul > p-treenode > li > ul > p-treenode:nth-child(4) > li > div > div > div"));
+		vmp07.click();
+	}
 	
 	@Test
 	public static void clickBtnPesquisar() {
@@ -315,8 +365,8 @@ public class ElementMap {
 		int count = 0;
 		for (WebElement element : linhasTabela) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultInfoBasic.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultTabela.get(count).toString());
 			
 			Assert.assertEquals(resultTabela.get(count).toString(), result);			
 			count++;
@@ -429,32 +479,9 @@ public class ElementMap {
 		resultAba5.add("Original ID 1-1EORFPVQ");
 		resultAba5.add("ID da Conta 1-1EORFPVQOCS");
 		resultAba5.add("Plano Principal 5005");
-		resultAba5.add("ID do Plano Suplementar 2200020");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:30:19");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:17");
-		resultAba5.add("ID do Plano Suplementar 2200021");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:30:20");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:18");
-		resultAba5.add("ID do Plano Suplementar 2200022");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:30:21");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:19");
-		resultAba5.add("ID do Plano Suplementar 2200023");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:30:22");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:20");
-		resultAba5.add("ID do Plano Suplementar 2200024");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:30:23");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:21");
-		resultAba5.add("ID do Plano Suplementar 2200025");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:20:24");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:22");
-		resultAba5.add("ID do Plano Suplementar 2200026");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:40:25");
-		resultAba5.add("Data de Expiração do plano suplementar 31/12/2036 21:00:23");
-		resultAba5.add("ID do Plano Suplementar 2200027");
-		resultAba5.add("Data de Efetivação do plano suplementar 28/01/2020 14:40:26");
-		resultAba5.add("Data de Expiração do plano suplementar 27/02/2020 00:00:00");
+		resultAba5.add("O MSISDN não possui Plano Suplementar na plataforma OCS");
 		
-		
+
 		//Pega todas as tags tr dentro do painel de cada aba.
 		WebElement tabelaResumo = driver.findElement(By.xpath("//*[@id=\"ui-tabpanel-0\"]"));
 		List<WebElement> linhasResumo = tabelaResumo.findElements(By.cssSelector("tr"));
@@ -462,8 +489,8 @@ public class ElementMap {
 		int count = 0;
 		for (WebElement element : linhasResumo) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultResumo.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultResumo.get(count).toString());
 			
 			Assert.assertEquals(resultResumo.get(count).toString(), result);			
 			count++;
@@ -477,8 +504,8 @@ public class ElementMap {
 		count = 0;
 		for (WebElement element : linhasAba1) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultAba1.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultAba1.get(count).toString());
 			
 			Assert.assertEquals(resultAba1.get(count).toString(), result);			
 			count++;
@@ -492,8 +519,8 @@ public class ElementMap {
 		count = 0;
 		for (WebElement element : linhasAba2) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultAba2.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultAba2.get(count).toString());
 			
 			Assert.assertEquals(resultAba2.get(count).toString(), result);			
 			count++;
@@ -507,8 +534,8 @@ public class ElementMap {
 		count = 0;
 		for (WebElement element : linhasAba3) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultAba3.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultAba3.get(count).toString());
 			
 			Assert.assertEquals(resultAba3.get(count).toString(), result);			
 			count++;
@@ -522,8 +549,8 @@ public class ElementMap {
 		count = 0;
 		for (WebElement element : linhasAba4) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultAba4.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultAba4.get(count).toString());
 			
 			Assert.assertEquals(resultAba4.get(count).toString(), result);			
 			count++;
@@ -538,14 +565,64 @@ public class ElementMap {
 		count = 0;
 		for (WebElement element : linhasAba5) {
 			String result = element.getText();
-			System.out.println("resultado: " + result);
-			//System.out.println("resultExp: " + resultAba5.get(count).toString());
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultAba5.get(count).toString());
 			
 			Assert.assertEquals(resultAba5.get(count).toString(), result);			
 			count++;
 		}
 	}
 
+	
+	public static void validaResultadoVMSNovitech() {
+		
+		List<String> resultVms04 = new ArrayList<String>();
+		resultVms04.add("MSISDN 5512345678901");
+		resultVms04.add("Plano Pré-Pago");
+		resultVms04.add("Código de Pacote 55619");
+		resultVms04.add("Serviço -");
+		resultVms04.add("Caixa Postal");
+		resultVms04.add("Conversão de Voz para Texto");
+		resultVms04.add("Missed Calls");
+			
+		WebElement tabelaVms = driver.findElement(By.xpath("//*[@id=\"ui-panel-0-content\"]/div"));
+		List<WebElement> linhasVms = tabelaVms.findElements(By.cssSelector("tr"));
+		
+		int count = 0;
+		for (WebElement element : linhasVms) {
+			String result = element.getText();
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultVms04.get(count).toString());
+			
+			Assert.assertEquals(resultVms04.get(count).toString(), result);			
+			count++;
+		}
+	}
+	
+	public static void validaResultadoSmartKeyHuaweiLSMS01() {
+		
+		List<String> resultLsms01 = new ArrayList<String>();
+		resultLsms01.add("MSISDN 31983606850");
+		resultLsms01.add("IMSI 724456789012345");
+		resultLsms01.add("Número 001");
+		resultLsms01.add("Endereço HLR 550310006000 (HLR50)");
+		resultLsms01.add("NewRoute -");
+			
+		WebElement tabelaLsms = driver.findElement(By.xpath("//*[@id=\"ui-panel-0-content\"]/div"));
+		List<WebElement> linhasLsms = tabelaLsms.findElements(By.cssSelector("tr"));
+		
+		int count = 0;
+		for (WebElement element : linhasLsms) {
+			String result = element.getText();
+			System.out.println("resultAct: " + result);
+			System.out.println("resultExp: " + resultLsms01.get(count).toString());
+			
+			Assert.assertEquals(resultLsms01.get(count).toString(), result);			
+			count++;
+		}
+	}
+	
+	
 
 	
 	// preenche campo pesquisa com o valor teste

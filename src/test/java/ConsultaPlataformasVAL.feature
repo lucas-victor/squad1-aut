@@ -1,4 +1,4 @@
-@ConsultaVAL @ConsultaALL
+@ignore
 Feature: Realiza consulta por ID no portal Consulta Plataformas 
   Como um usuário
   eu quero realizar uma consulta por ID

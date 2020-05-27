@@ -20,7 +20,6 @@ Background:
     |  							id  					  	|     plataforma        |  idresult   |
     | "12345"     										|  "OCS Huawei OCS01"		|     "id"    |
  		| "12345678901234567890" 					|  "OCS Huawei OCS01"   |     "id"    |
- 		| "55313393211"     							|  "OCS Huawei OCS01"   |     "id" 		|
       
       
       
