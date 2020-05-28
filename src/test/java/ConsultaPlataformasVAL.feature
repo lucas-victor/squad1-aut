@@ -7,7 +7,7 @@ Feature: Realiza consulta por ID no portal Consulta Plataformas
 Background:
 	 Given que estou logado no site
   
-  @ConsultaVAL
+  @ignore
   Scenario Outline: Realiza consulta por ID com falhas.
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com ID <id>
@@ -22,7 +22,7 @@ Background:
       | "123456789012345"     |  "OCS Huawei OCS01"		|	"ID falha 2 - Subscriber 1-1EORFHEE does not exist.  - assinante inexistente"				|
       | "55313393211"     		|  "OCS Huawei OCS01"   | "id O MSISDN não possui Plano Suplementar na plataforma OCS - consulta sem oferta"  |
  
-  @ConsultaVAL
+  @ignore
   Scenario Outline: Realiza consulta de cliente inexistente.
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com ID <id>
@@ -39,12 +39,13 @@ Background:
   @ConsultaVAL
   Scenario Outline: Valida o campo TERMINAL.
     And acesso o menu Consulta Plataformas
-    When preencho o campo <terminal> com o valor <valor>
+    When seleciono o Radio <entrada> 
+    And preencho o campo Terminal com <valor>
     Then devo ver a mensagem <msg>								
   
    Examples: 
      |	 terminal  	   |         valor  			  		 	|                        msg													|							
-     |  "IMSI"   			 | "12345 com 4 caracteres"     |    "Campo invalido!"        												|						
+     |  "IMSI"   			 | ""                           |    "Campo invalido!"        												|						
      |	"IMSI"    	   | "123456 com	15 sem 724"			|    "Campo invalido! O IMSI deve começar com "724"".	|							
  		 |	"MSISDN"       | "123456 com	15 sem 724"			|    "Campo invalido! O IMSI deve começar com "724"".	|	
      |	"MSISDN"       | "123456 com	15 sem 724"			|    "Campo invalido! O IMSI deve começar com "724"".	|	
@@ -57,3 +58,8 @@ Background:
      |	"CNPJ"      	 | "123456 com	15 sem 724"			|    "Campo invalido! O IMSI deve começar com "724"".	|
      |	"CNPJ"      	 | "123456 com	15 sem 724"			|    "Campo invalido! O IMSI deve começar com "724"".	|
 
+
+	Scenario: Valida mensagem embaixo do campo terminal.
+		And acesso o menu Consulta Plataformas
+		When preencho o radio "msisdn" e digito "1234"
+		Then visualizo a mensagem "" 

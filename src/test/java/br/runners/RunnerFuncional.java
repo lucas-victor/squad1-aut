@@ -3,8 +3,13 @@ package br.runners;
 import java.io.File;
 
 import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
 import com.cucumber.listener.Reporter;
+
+import br.steps.TestRule;
+import br.utils.FolderZiper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -27,15 +32,29 @@ import cucumber.api.junit.Cucumber;
 public class RunnerFuncional {
 	
 	@AfterClass
-	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File(Apoio.getReportConfigPath()));
+	public static void writeExtentReport() throws Exception {
+		Reporter.loadXMLConfig(new File(TestRule.getReportConfigPath()));
+		Reporter.setSystemInfo("Author", "Lucas Victor");
 		Reporter.setSystemInfo("User Name", "Squadra");
 		Reporter.setSystemInfo("Time zone", System.getProperty("user.timezone"));
 		Reporter.setSystemInfo("Selenium", "3.11.0");
 		Reporter.setSystemInfo("Cucumber", "1.2.5");
 		Reporter.setSystemInfo("JUnit", "1.2.6");
 		Reporter.setSystemInfo("Java", "1.8.0_251");
-		Reporter.setSystemInfo("Navegador", "Chrome");
+		Reporter.setSystemInfo("Browser", "Chrome");
 		
+		//Gera o relatório.
+		Reporter.getExtentReport().flush();
+		
+		//faz backup do relatorio gerado.
+		FolderZiper.zipFolder();
+	}
+	
+	
+	@BeforeClass
+	public static void limpaPrints() {
+		System.out.println("Inicializando Teste...");
+		//limpa pastas
+		FolderZiper.limparPastas();			
 	}
 }

@@ -97,7 +97,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 96500,
+  "duration": 55600,
   "status": "passed"
 });
 formatter.background({
@@ -116,7 +116,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 26509493600,
+  "duration": 25829119500,
   "status": "passed"
 });
 formatter.scenario({
@@ -180,7 +180,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7116591700,
+  "duration": 6098373100,
   "status": "passed"
 });
 formatter.match({
@@ -193,7 +193,7 @@ formatter.match({
   "location": "ConsultaPlataformasCpfCnpjSteps.preenchoOsDadosDaTelaComCPF(String)"
 });
 formatter.result({
-  "duration": 2779001300,
+  "duration": 5701124500,
   "status": "passed"
 });
 formatter.match({
@@ -206,21 +206,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 136232900,
+  "duration": 134634200,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 43809100,
+  "duration": 334417500,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 19700,
+  "duration": 1090775300,
   "status": "passed"
 });
 formatter.match({
@@ -237,19 +237,19 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.validarAsInformacoesDaOCSHuaweiOCS(int,String)"
 });
 formatter.result({
-  "duration": 9660507600,
+  "duration": 7817076300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1289855700,
+  "duration": 277337500,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4133461600,
+  "duration": 1655093300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 29700,
+  "duration": 12400,
   "status": "passed"
 });
 formatter.background({
@@ -268,7 +268,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 54306316400,
+  "duration": 48714428300,
   "status": "passed"
 });
 formatter.scenario({
@@ -332,7 +332,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7088547100,
+  "duration": 6060721300,
   "status": "passed"
 });
 formatter.match({
@@ -345,7 +345,7 @@ formatter.match({
   "location": "ConsultaPlataformasCpfCnpjSteps.preenchoOsDadosDaTelaComCPF(String)"
 });
 formatter.result({
-  "duration": 3978062700,
+  "duration": 11245914500,
   "status": "passed"
 });
 formatter.match({
@@ -358,21 +358,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 138817000,
+  "duration": 140648400,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 57828700,
+  "duration": 325548900,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 15600,
+  "duration": 780459700,
   "status": "passed"
 });
 formatter.match({
@@ -389,15 +389,15 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.validarAsInformacoesDaOCSHuaweiOCS(int,String)"
 });
 formatter.result({
-  "duration": 7854881300,
+  "duration": 7786065800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1275516800,
+  "duration": 276251100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4121966000,
+  "duration": 1649706500,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -472,7 +472,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 39700,
+  "duration": 23700,
   "status": "passed"
 });
 formatter.background({
@@ -491,7 +491,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 32591251000,
+  "duration": 32300852500,
   "status": "passed"
 });
 formatter.scenario({
@@ -555,7 +555,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7063652500,
+  "duration": 6063495200,
   "status": "passed"
 });
 formatter.match({
@@ -568,7 +568,7 @@ formatter.match({
   "location": "ConsultaPlataformasCpfCnpjSteps.preenchoOsDadosDaTelaComCNPJ(String)"
 });
 formatter.result({
-  "duration": 2473322500,
+  "duration": 6910145500,
   "status": "passed"
 });
 formatter.match({
@@ -581,21 +581,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 130541400,
+  "duration": 129530800,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 44764700,
+  "duration": 329752400,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 10200,
+  "duration": 740727800,
   "status": "passed"
 });
 formatter.match({
@@ -612,15 +612,15 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.validarAsInformacoesDaOCSHuaweiOCS(int,String)"
 });
 formatter.result({
-  "duration": 26291123100,
+  "duration": 7816762400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1280094900,
+  "duration": 268763000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4135472000,
+  "duration": 1619615200,
   "status": "passed"
 });
 formatter.uri("ConsultaPlataformasID.feature");
@@ -722,7 +722,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 49700,
+  "duration": 13300,
   "status": "passed"
 });
 formatter.background({
@@ -741,7 +741,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 30453200200,
+  "duration": 38408278300,
   "status": "passed"
 });
 formatter.scenario({
@@ -805,7 +805,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7071149300,
+  "duration": 6065579700,
   "status": "passed"
 });
 formatter.match({
@@ -818,7 +818,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.preenchoOsDadosDaTelaComID(String)"
 });
 formatter.result({
-  "duration": 2278555000,
+  "duration": 7515605100,
   "status": "passed"
 });
 formatter.match({
@@ -831,21 +831,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 134573000,
+  "duration": 136701600,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 43916900,
+  "duration": 324984500,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 9900,
+  "duration": 772887000,
   "status": "passed"
 });
 formatter.match({
@@ -862,19 +862,19 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.validarAsInformacoesDaOCSHuaweiOCS(int,String)"
 });
 formatter.result({
-  "duration": 7858390800,
+  "duration": 4243410300,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1273138000,
+  "duration": 271395100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4139203500,
+  "duration": 1629120500,
   "status": "passed"
 });
 formatter.before({
-  "duration": 26000,
+  "duration": 9700,
   "status": "passed"
 });
 formatter.background({
@@ -893,7 +893,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 29978575000,
+  "duration": 31570073700,
   "status": "passed"
 });
 formatter.scenario({
@@ -957,7 +957,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7065030500,
+  "duration": 6067342300,
   "status": "passed"
 });
 formatter.match({
@@ -970,7 +970,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.preenchoOsDadosDaTelaComID(String)"
 });
 formatter.result({
-  "duration": 14434970300,
+  "duration": 2380124700,
   "status": "passed"
 });
 formatter.match({
@@ -983,21 +983,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 140795800,
+  "duration": 138968700,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 44368200,
+  "duration": 319263700,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 8100,
+  "duration": 771753800,
   "status": "passed"
 });
 formatter.match({
@@ -1014,15 +1014,15 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.validarAsInformacoesDaOCSHuaweiOCS(int,String)"
 });
 formatter.result({
-  "duration": 8191284900,
+  "duration": 4236664900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1269332000,
+  "duration": 266457700,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4121760700,
+  "duration": 2016956400,
   "status": "passed"
 });
 formatter.uri("ConsultaPlataformasMSISDN_IMSI_TERMINAL.feature");
@@ -1124,7 +1124,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 21500,
+  "duration": 9800,
   "status": "passed"
 });
 formatter.background({
@@ -1143,7 +1143,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 32868399900,
+  "duration": 41741658500,
   "status": "passed"
 });
 formatter.scenario({
@@ -1207,7 +1207,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7062138600,
+  "duration": 6074560300,
   "status": "passed"
 });
 formatter.match({
@@ -1220,7 +1220,7 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.preenchoOsDadosDaTelaComMSISDN(String)"
 });
 formatter.result({
-  "duration": 2768779900,
+  "duration": 6828650000,
   "status": "passed"
 });
 formatter.match({
@@ -1233,21 +1233,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 138740100,
+  "duration": 130076700,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 45355500,
+  "duration": 330972600,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 8700,
+  "duration": 498407700,
   "status": "passed"
 });
 formatter.match({
@@ -1260,19 +1260,19 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.validarAsInformacoesDaConsulta(String)"
 });
 formatter.result({
-  "duration": 8174994000,
+  "duration": 95066900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1283950800,
+  "duration": 267292400,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4124935400,
+  "duration": 1621928300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 36400,
+  "duration": 16800,
   "status": "passed"
 });
 formatter.background({
@@ -1291,7 +1291,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 27103390200,
+  "duration": 26378577100,
   "status": "passed"
 });
 formatter.scenario({
@@ -1355,7 +1355,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7080094700,
+  "duration": 6062013100,
   "status": "passed"
 });
 formatter.match({
@@ -1368,7 +1368,7 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.preenchoOsDadosDaTelaComMSISDN(String)"
 });
 formatter.result({
-  "duration": 6920308000,
+  "duration": 7412751600,
   "status": "passed"
 });
 formatter.match({
@@ -1381,21 +1381,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 148480000,
+  "duration": 146271700,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 42426000,
+  "duration": 333171300,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 9500,
+  "duration": 843458700,
   "status": "passed"
 });
 formatter.match({
@@ -1408,15 +1408,15 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.validarAsInformacoesDaConsulta(String)"
 });
 formatter.result({
-  "duration": 18349555800,
+  "duration": 100411900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1270532400,
+  "duration": 272702100,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4125662100,
+  "duration": 1620798100,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -1491,7 +1491,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 26100,
+  "duration": 13500,
   "status": "passed"
 });
 formatter.background({
@@ -1510,7 +1510,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.queEstouLogadoNoSite()"
 });
 formatter.result({
-  "duration": 30614523600,
+  "duration": 26790881700,
   "status": "passed"
 });
 formatter.scenario({
@@ -1574,7 +1574,7 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.acessoOMenuConsultaPlataformas()"
 });
 formatter.result({
-  "duration": 7076437100,
+  "duration": 6067694900,
   "status": "passed"
 });
 formatter.match({
@@ -1587,7 +1587,7 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.preenchoOsDadosDaTelaComIMSI(String)"
 });
 formatter.result({
-  "duration": 2563634200,
+  "duration": 6131607500,
   "status": "passed"
 });
 formatter.match({
@@ -1600,21 +1600,21 @@ formatter.match({
   "location": "ConsultaPlataformasIdSteps.selecionoAPlataforma(String)"
 });
 formatter.result({
-  "duration": 140511800,
+  "duration": 144652300,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.clicoNoBotaoPesquisar()"
 });
 formatter.result({
-  "duration": 43685600,
+  "duration": 318408700,
   "status": "passed"
 });
 formatter.match({
   "location": "ConsultaPlataformasIdSteps.devoVerOsDadosExibidos()"
 });
 formatter.result({
-  "duration": 9000,
+  "duration": 17106159900,
   "status": "passed"
 });
 formatter.match({
@@ -1627,15 +1627,15 @@ formatter.match({
   "location": "ConsultaPlataformasMsisdnImsiTerSteps.validarAsInformacoesDaConsulta(String)"
 });
 formatter.result({
-  "duration": 6871789100,
+  "duration": 67782700,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1267918900,
+  "duration": 275929000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 4134884400,
+  "duration": 1639266100,
   "status": "passed"
 });
 });

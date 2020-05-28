@@ -1,7 +1,8 @@
 package br.steps;
 
+import com.cucumber.listener.Reporter;
+
 import br.runners.Apoio;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -32,18 +33,21 @@ public class ConsultaPlataformasIdSteps {
 			ElementMap.clickTreeGSM();
 		    ElementMap.clickTreeGSM_OCSHuawei();
 		    ElementMap.clickTreeGSM_OCSHuawei_Ocs01();
+		    Reporter.addStepLog("Selecionada plataforma: OCS01");
 			break;
 			
 		case "VMS Novitech VMS04":
 			ElementMap.clickTreeGSM();
 			ElementMap.clickTreeGSM_VMSnovitech();
 			ElementMap.clickTreeGSM_VMSnovitech_VMS04();
+			Reporter.addStepLog("Selecionada plataforma: VMS04");
 			break;
 			
 		case "SmartKeyHuawei LSMS01":
 			ElementMap.clickTreeGSM();
 			ElementMap.clickTreeGSM_SmartKeyHuawei();
 			ElementMap.clickTreeGSM_SmartKeyHuawei_LSMS01();
+			Reporter.addStepLog("Selecionada plataforma: LSMS01");
 			break;
 		
 		default:
@@ -59,7 +63,7 @@ public class ConsultaPlataformasIdSteps {
 
 	@Then("^devo ver os dados exibidos$")
 	public void devoVerOsDadosExibidos() throws Throwable {
-		//ElementMap.validaResultadoOCSid();
+		ElementMap.verificaQueExibiraDados();
 	}
 
 	@Then("^validar as informacoes da OCS Huawei OCS(\\d+) \"([^\"]*)\"$")
