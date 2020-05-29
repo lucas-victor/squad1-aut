@@ -1,6 +1,6 @@
 @ConsultaCPFCNPJ @ConsultaALL
 Feature: Realiza consulta por CPF e CNPJ no portal Consulta Plataformas 
-  Como um usuário
+  Como um usuario
   eu quero realizar uma consulta por CPF CNPJ
   no portal Consulta Plataformas.
 
@@ -8,7 +8,7 @@ Background:
 	 Given que estou logado no site
 	 
   @ConsultaCPFCNPJ
-  Scenario Outline: Realiza consulta por CPF com sucesso.
+  Scenario Outline: Realiza consulta por CPF com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com CPF <cpf>
     And seleciono a plataforma <plataforma>
@@ -23,7 +23,7 @@ Background:
 
   
   @ConsultaCPFCNPJ
-  Scenario Outline: Realiza consulta por CNPJ com sucesso.
+  Scenario Outline: Realiza consulta por CNPJ com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com CNPJ <cnpj>
     And seleciono a plataforma <plataforma>

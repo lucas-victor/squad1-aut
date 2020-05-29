@@ -105,16 +105,17 @@ public class TestRule {
 		// data
 		Date data = new Date();
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH.mm.ss");
-
+		
 		// print da tela.
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			String pathNamePrint = System.getProperty("user.dir") + "/target/relatorios/screenshot/" + cenario.getId()
-					+ "-" + dateFormat.format(data) + ".jpg";
-			FileUtils.copyFile(file, new File(pathNamePrint));
+			String pathPrint = "target/relatorios/screenshot/"; 
+			String namePrint = cenario.getName().replace(" ", "_") + "-" + dateFormat.format(data) + ".jpg";
+			
+			FileUtils.copyFile(file, new File(pathPrint + namePrint));
 
 			// adiciona o print ao relatorio
-			Reporter.addScreenCaptureFromPath(pathNamePrint);
+			Reporter.addScreenCaptureFromPath("screenshot/" + namePrint);
 
 		} catch (IOException e) {
 			e.printStackTrace();

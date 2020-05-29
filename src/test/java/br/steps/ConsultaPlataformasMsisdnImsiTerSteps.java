@@ -35,7 +35,7 @@ public class ConsultaPlataformasMsisdnImsiTerSteps {
 		}
 		else if (result.startsWith("terminal")) {
 			//quando tiver fixa no banco, construir o metodo para o terminal.
-			//Não é o foco da demanda atual.
+			//NÃ£o Ã© o foco da demanda atual. Finalizar posteriormente.
 			System.out.println("Falta construir a validacao do terminal");
 		}
 				

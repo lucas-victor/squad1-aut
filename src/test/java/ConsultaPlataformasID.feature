@@ -1,6 +1,6 @@
 @ConsultaID @ConsultaALL
 Feature: Realiza consulta por ID no portal Consulta Plataformas 
-  Como um usuário
+  Como um usuario
   eu quero realizar consultas por ID
   no portal Consulta Plataformas.
   
@@ -8,7 +8,7 @@ Background:
 	 Given que estou logado no site
   
   @ConsultaID
-  Scenario Outline: Realiza consulta por ID com sucesso.
+  Scenario Outline: Realiza consulta por ID com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com ID <id>
     And seleciono a plataforma <plataforma> 

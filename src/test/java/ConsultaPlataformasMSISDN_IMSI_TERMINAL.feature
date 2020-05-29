@@ -1,14 +1,14 @@
 @ConsultaMSISDN_IMSI_TER @ConsultaALL
-Feature: Realiza consulta por MSISDN/IMSI/TERMINAL no portal Consulta Plataformas 
-  Como um usuário
-  eu quero realizar uma consulta por MSISDN / IMSI / TERMINAL
+Feature: Realiza consulta por MSISDN-IMSI-TERMINAL no portal Consulta Plataformas 
+  Como um usuario
+  eu quero realizar uma consulta por MSISDN, IMSI e TERMINAL
   no portal Consulta Plataformas.
 
 Background:
 	 Given que estou logado no site
 	 
   @ConsultaMSISDN_IMSI_TER
-  Scenario Outline: Realiza consulta por MSISDN com sucesso.
+  Scenario Outline: Realiza consulta por MSISDN com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com MSISDN <msisdn>
     And seleciono a plataforma <plataforma>
@@ -23,7 +23,7 @@ Background:
 
   
   @ConsultaMSISDN_IMSI_TER
-  Scenario Outline: Realiza consulta por IMSI com sucesso.
+  Scenario Outline: Realiza consulta por IMSI com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com IMSI <imsi>
     And seleciono a plataforma <plataforma>
@@ -37,7 +37,7 @@ Background:
       
  
   @ignore
-  Scenario Outline: Realiza consulta por TERMINAL com sucesso.
+  Scenario Outline: Realiza consulta por TERMINAL com sucesso
     And acesso o menu Consulta Plataformas
     When preencho os dados da tela com TERMINAL <terminal>
     And seleciono a plataforma <plataforma>

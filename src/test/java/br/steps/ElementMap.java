@@ -105,19 +105,37 @@ public class ElementMap {
 	public static void verificaQueExibiraDados() {
 		boolean tela = driver.findElement(By.xpath("//*[@class=\"pi pi-minus\"]")).isDisplayed();
 		if (!tela) {
-			Assert.assertEquals("", "objeto não apareceu na tela, verificar!");
+			Assert.assertEquals("", "objeto nÃ£o apareceu na tela, verificar!");
 		}
 	}
 
 	@Test
 	public static void preencheCampoTerminal(String terminal) {
-		Apoio.wait(1000);
 		driver.findElement(By.name("terminal")).sendKeys(terminal);
-
 	}
 
 	public static void validaMsgCampoTerminal(String msgEsperada) {
 		WebElement msg = driver.findElement(By.xpath("//*[@class=\"ui-messages-error ui-corner-all\"]"));
+		String msgAtual = msg.getText();
+
+		Assert.assertEquals(msgEsperada, msgAtual);
+	}
+	
+	@Test
+	public static void validaMsgCampoTerminal(String iniMsg, int num, String fimMsg) {
+		
+		String msgEsperada = iniMsg + "\"" + num + "\"" + fimMsg;
+		
+		WebElement msg = driver.findElement(By.xpath("//*[@class=\"ui-messages-error ui-corner-all\"]"));
+		String msgAtual = msg.getText();
+		
+		System.out.println("Mensagem esperada: " + msgEsperada);
+		Assert.assertEquals(msgEsperada, msgAtual);
+	}
+	
+	@Test
+	public static void validaMsgPlataformaInvalida(String msgEsperada) {
+		WebElement msg = driver.findElement(By.cssSelector("body > app-root > sis-notificacao > p-toast > div > p-toastitem > div > div > div > div.ui-toast-detail"));
 		String msgAtual = msg.getText();
 
 		Assert.assertEquals(msgEsperada, msgAtual);
@@ -130,6 +148,31 @@ public class ElementMap {
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
 		gsm.click();
 	}
+	
+	@Test
+	public static void clickTreeFixa() {
+		// clica no item GSM da arvore.
+		WebElement fixa = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
+		fixa.click();
+	}
+	
+	@Test
+	public static void clickTreeFixa_IMS() {
+		// clica no item GSM da arvore.
+		WebElement ims = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > ul > p-treenode:nth-child(2) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
+		ims.click();
+	}
+	
+	@Test
+	public static void clickTreeFixa_IMS_SAM01() {
+		// clica no item GSM da arvore.
+		WebElement sam01 = driver.findElement(By.cssSelector(
+				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > ul > p-treenode:nth-child(2) > li > ul > p-treenode > li > div > div > div"));
+		sam01.click();
+	}
+	
 
 	@Test
 	public static void clickTreeGSM_VMSnovitech() {
@@ -284,20 +327,20 @@ public class ElementMap {
 		abaUm.click();
 	}
 
-	// Validações
+	// Validacoes
 	@Test
 	public static void validaMsgTimeOutConsulta() {
-		// pega só a msg
+		// pega so a msg
 		WebElement msgTimeOut = driver.findElement(By.xpath("//*[@id=\"ui-panel-0-content\"]/div"));
 		String resultText = msgTimeOut.getText();
 		// valida texto
-		Assert.assertEquals(resultText, "Tempo de espera da resposta à consulta excedido.");
+		Assert.assertEquals(resultText, "Tempo de espera da resposta Ã  consulta excedido.");
 
 		// pega tabela msg inteira
 		WebElement msgToda = driver.findElement(By.xpath("//*[@id=\"salvaDiv\"]"));
 		String resultTextTodo = msgToda.getText();
 		// valida texto
-		Assert.assertEquals(resultTextTodo, "VMP07\r\n" + "Tempo de espera da resposta à consulta excedido.");
+		Assert.assertEquals(resultTextTodo, "VMP07\r\n" + "Tempo de espera da resposta Ã  consulta excedido.");
 
 	}
 
@@ -347,20 +390,20 @@ public class ElementMap {
 		resultTabela.add("ID da Conta 1-1J1IZLL5OCS");
 		resultTabela.add("Plano Principal 5001");
 		resultTabela.add("ID do Plano Suplementar 1200001");
-		resultTabela.add("Data de Efetivação do plano suplementar 15/04/2020 14:48:43");
-		resultTabela.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultTabela.add("Data de EfetivaÃ§Ã£o do plano suplementar 15/04/2020 14:48:43");
+		resultTabela.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultTabela.add("ID do Plano Suplementar 2200018");
-		resultTabela.add("Data de Efetivação do plano suplementar 15/04/2020 14:48:43");
-		resultTabela.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultTabela.add("Data de EfetivaÃ§Ã£o do plano suplementar 15/04/2020 14:48:43");
+		resultTabela.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultTabela.add("ID do Plano Suplementar 2200004");
-		resultTabela.add("Data de Efetivação do plano suplementar 15/04/2020 14:48:43");
-		resultTabela.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultTabela.add("Data de EfetivaÃ§Ã£o do plano suplementar 15/04/2020 14:48:43");
+		resultTabela.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultTabela.add("ID do Plano Suplementar 2200003");
-		resultTabela.add("Data de Efetivação do plano suplementar 15/04/2020 14:48:43");
-		resultTabela.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultTabela.add("Data de EfetivaÃ§Ã£o do plano suplementar 15/04/2020 14:48:43");
+		resultTabela.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultTabela.add("ID do Plano Suplementar 2200001");
-		resultTabela.add("Data de Efetivação do plano suplementar 15/04/2020 14:48:43");
-		resultTabela.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultTabela.add("Data de EfetivaÃ§Ã£o do plano suplementar 15/04/2020 14:48:43");
+		resultTabela.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultTabela.add("ID do Plano Suplementar 1200001");
 		resultTabela.add("ID do Plano Suplementar 2200001");
 
@@ -401,20 +444,20 @@ public class ElementMap {
 		resultAba1.add("ID da Conta 1-1G3AQ237OCS");
 		resultAba1.add("Plano Principal 5001");
 		resultAba1.add("ID do Plano Suplementar 2200001");
-		resultAba1.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:01");
-		resultAba1.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultAba1.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:01");
+		resultAba1.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultAba1.add("ID do Plano Suplementar 2200002");
-		resultAba1.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:02");
-		resultAba1.add("Data de Expiração do plano suplementar 31/12/2036 21:00:01");
+		resultAba1.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:02");
+		resultAba1.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:01");
 		resultAba1.add("ID do Plano Suplementar 2200003");
-		resultAba1.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:03");
-		resultAba1.add("Data de Expiração do plano suplementar 31/12/2036 21:00:02");
+		resultAba1.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:03");
+		resultAba1.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:02");
 		resultAba1.add("ID do Plano Suplementar 2200004");
-		resultAba1.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:04");
-		resultAba1.add("Data de Expiração do plano suplementar 31/12/2036 21:00:03");
+		resultAba1.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:04");
+		resultAba1.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:03");
 		resultAba1.add("ID do Plano Suplementar 2200005");
-		resultAba1.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:05");
-		resultAba1.add("Data de Expiração do plano suplementar 31/12/2036 21:00:04");
+		resultAba1.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:05");
+		resultAba1.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:04");
 
 		List<String> resultAba2 = new ArrayList<String>();
 		resultAba2.add("MSISDN 5541984645598");
@@ -422,20 +465,20 @@ public class ElementMap {
 		resultAba2.add("ID da Conta 1-2G4AQ348OCS");
 		resultAba2.add("Plano Principal 5002");
 		resultAba2.add("ID do Plano Suplementar 2200006");
-		resultAba2.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:01");
-		resultAba2.add("Data de Expiração do plano suplementar 31/12/2036 21:00:00");
+		resultAba2.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:01");
+		resultAba2.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:00");
 		resultAba2.add("ID do Plano Suplementar 2200007");
-		resultAba2.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:02");
-		resultAba2.add("Data de Expiração do plano suplementar 31/12/2036 21:00:01");
+		resultAba2.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:02");
+		resultAba2.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:01");
 		resultAba2.add("ID do Plano Suplementar 2200008");
-		resultAba2.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:03");
-		resultAba2.add("Data de Expiração do plano suplementar 31/12/2036 21:00:02");
+		resultAba2.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:03");
+		resultAba2.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:02");
 		resultAba2.add("ID do Plano Suplementar 2200009");
-		resultAba2.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:04");
-		resultAba2.add("Data de Expiração do plano suplementar 31/12/2036 21:00:03");
+		resultAba2.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:04");
+		resultAba2.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:03");
 		resultAba2.add("ID do Plano Suplementar 2200010");
-		resultAba2.add("Data de Efetivação do plano suplementar 01/10/2019 17:00:05");
-		resultAba2.add("Data de Expiração do plano suplementar 31/12/2036 21:00:04");
+		resultAba2.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 17:00:05");
+		resultAba2.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:04");
 
 		List<String> resultAba3 = new ArrayList<String>();
 		resultAba3.add("MSISDN 5571988621104");
@@ -443,20 +486,20 @@ public class ElementMap {
 		resultAba3.add("ID da Conta 1-1EORFFB2OCS");
 		resultAba3.add("Plano Principal 5003");
 		resultAba3.add("ID do Plano Suplementar 2200006");
-		resultAba3.add("Data de Efetivação do plano suplementar 01/10/2019 16:40:07");
-		resultAba3.add("Data de Expiração do plano suplementar 31/12/2036 21:00:06");
+		resultAba3.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 16:40:07");
+		resultAba3.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:06");
 		resultAba3.add("ID do Plano Suplementar 2200011");
-		resultAba3.add("Data de Efetivação do plano suplementar 01/10/2019 16:40:08");
-		resultAba3.add("Data de Expiração do plano suplementar 31/12/2036 21:00:07");
+		resultAba3.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 16:40:08");
+		resultAba3.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:07");
 		resultAba3.add("ID do Plano Suplementar 2200012");
-		resultAba3.add("Data de Efetivação do plano suplementar 01/10/2019 16:40:09");
-		resultAba3.add("Data de Expiração do plano suplementar 31/12/2036 21:00:08");
+		resultAba3.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 16:40:09");
+		resultAba3.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:08");
 		resultAba3.add("ID do Plano Suplementar 2200013");
-		resultAba3.add("Data de Efetivação do plano suplementar 01/10/2019 16:40:10");
-		resultAba3.add("Data de Expiração do plano suplementar 31/12/2036 21:00:09");
+		resultAba3.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 16:40:10");
+		resultAba3.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:09");
 		resultAba3.add("ID do Plano Suplementar 2200014");
-		resultAba3.add("Data de Efetivação do plano suplementar 01/10/2019 16:40:11");
-		resultAba3.add("Data de Expiração do plano suplementar 31/12/2036 21:00:10");
+		resultAba3.add("Data de EfetivaÃ§Ã£o do plano suplementar 01/10/2019 16:40:11");
+		resultAba3.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:10");
 
 		List<String> resultAba4 = new ArrayList<String>();
 		resultAba4.add("MSISDN 5527988420028");
@@ -464,27 +507,27 @@ public class ElementMap {
 		resultAba4.add("ID da Conta 1-1EORFPX6OCS");
 		resultAba4.add("Plano Principal 5004");
 		resultAba4.add("ID do Plano Suplementar 2200015");
-		resultAba4.add("Data de Efetivação do plano suplementar 02/12/2019 18:20:13");
-		resultAba4.add("Data de Expiração do plano suplementar 31/12/2036 21:00:12");
+		resultAba4.add("Data de EfetivaÃ§Ã£o do plano suplementar 02/12/2019 18:20:13");
+		resultAba4.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:12");
 		resultAba4.add("ID do Plano Suplementar 2200016");
-		resultAba4.add("Data de Efetivação do plano suplementar 02/12/2019 18:20:14");
-		resultAba4.add("Data de Expiração do plano suplementar 31/12/2036 21:00:13");
+		resultAba4.add("Data de EfetivaÃ§Ã£o do plano suplementar 02/12/2019 18:20:14");
+		resultAba4.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:13");
 		resultAba4.add("ID do Plano Suplementar 2200017");
-		resultAba4.add("Data de Efetivação do plano suplementar 02/12/2019 18:20:15");
-		resultAba4.add("Data de Expiração do plano suplementar 31/12/2036 21:00:14");
+		resultAba4.add("Data de EfetivaÃ§Ã£o do plano suplementar 02/12/2019 18:20:15");
+		resultAba4.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:14");
 		resultAba4.add("ID do Plano Suplementar 2200018");
-		resultAba4.add("Data de Efetivação do plano suplementar 02/12/2019 18:20:16");
-		resultAba4.add("Data de Expiração do plano suplementar 31/12/2036 21:00:15");
+		resultAba4.add("Data de EfetivaÃ§Ã£o do plano suplementar 02/12/2019 18:20:16");
+		resultAba4.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:15");
 		resultAba4.add("ID do Plano Suplementar 2200019");
-		resultAba4.add("Data de Efetivação do plano suplementar 02/12/2019 18:20:17");
-		resultAba4.add("Data de Expiração do plano suplementar 31/12/2036 21:00:16");
+		resultAba4.add("Data de EfetivaÃ§Ã£o do plano suplementar 02/12/2019 18:20:17");
+		resultAba4.add("Data de ExpiraÃ§Ã£o do plano suplementar 31/12/2036 21:00:16");
 
 		List<String> resultAba5 = new ArrayList<String>();
 		resultAba5.add("MSISDN 5521989094641");
 		resultAba5.add("Original ID 1-1EORFPVQ");
 		resultAba5.add("ID da Conta 1-1EORFPVQOCS");
 		resultAba5.add("Plano Principal 5005");
-		resultAba5.add("O MSISDN não possui Plano Suplementar na plataforma OCS");
+		resultAba5.add("O MSISDN nÃ£o possui Plano Suplementar na plataforma OCS");
 
 		Reporter.addStepLog("Dados verificados na tela: ");
 		Reporter.addStepLog("Aba resumo:");
@@ -594,11 +637,11 @@ public class ElementMap {
 			resultVms04.add("MSISDN 5534567890123");
 		}
 
-		resultVms04.add("Plano Pré-Pago");
-		resultVms04.add("Código de Pacote 55619");
-		resultVms04.add("Serviço -");
+		resultVms04.add("Plano PrÃ©-Pago");
+		resultVms04.add("CÃ³digo de Pacote 55619");
+		resultVms04.add("ServiÃ§o -");
 		resultVms04.add("Caixa Postal");
-		resultVms04.add("Conversão de Voz para Texto");
+		resultVms04.add("ConversÃ£o de Voz para Texto");
 		resultVms04.add("Missed Calls");
 
 		WebElement tabelaVms = driver.findElement(By.xpath("//*[@id=\"ui-panel-0-content\"]/div"));
@@ -622,8 +665,8 @@ public class ElementMap {
 		List<String> resultLsms01 = new ArrayList<String>();
 		resultLsms01.add("MSISDN 31983606850");
 		resultLsms01.add("IMSI 724456789012345");
-		resultLsms01.add("Número 001");
-		resultLsms01.add("Endereço HLR 550310006000 (HLR50)");
+		resultLsms01.add("NÃºmero 001");
+		resultLsms01.add("EndereÃ§o HLR 550310006000 (HLR50)");
 		resultLsms01.add("NewRoute -");
 
 		WebElement tabelaLsms = driver.findElement(By.xpath("//*[@id=\"ui-panel-0-content\"]/div"));
@@ -650,7 +693,7 @@ public class ElementMap {
 
 	}
 
-	// clica no botï¿½o Pesquisa
+	// clica no botao Pesquisa
 	@Test
 	public static void clicaBotaoPesquisa() {
 
@@ -668,12 +711,13 @@ public class ElementMap {
 
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			String pathNamePrint = System.getProperty("user.dir") + "/target/relatorios/screenshot/_"
-					+ dateFormat.format(data) + ".jpg";
-			FileUtils.copyFile(file, new File(pathNamePrint));
+			
+			String pathPrint = System.getProperty("user.dir") + "/target/relatorios/screenshot/";
+			String nomePrint = "_" + dateFormat.format(data) + ".jpg";
+			FileUtils.copyFile(file, new File(pathPrint + nomePrint));
 
 			// adiciona o print ao relatorio
-			Reporter.addScreenCaptureFromPath(pathNamePrint);
+			Reporter.addScreenCaptureFromPath("screenshot/" + nomePrint);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -681,25 +725,6 @@ public class ElementMap {
 
 	}
 
-	/*
-	 * // Configuraï¿½ï¿½o dos hooks para executar apï¿½s todos os cenï¿½rios.
-	 * 
-	 * @Before(order = 0) public void msgStart(Scenario cenario) { scenario =
-	 * cenario; System.out.println("iniciando teste."); }
-	 * 
-	 * @After(order = 1) // @After(order = 1) ou @After(order = 1, value = {
-	 * "@Funcionais" }) public static void screenshot(Scenario cenario) { Date data
-	 * = new Date(); DateFormat dateFormat = new
-	 * SimpleDateFormat("dd-MM-yyyy-HH.mm.ss");
-	 * 
-	 * File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	 * Apoio.wait(1000); try { FileUtils.copyFile(file, new
-	 * File("target/relatorios/screenshot/" + cenario.getId() +
-	 * dateFormat.format(data) + ".jpg")); } catch (IOException e) {
-	 * e.printStackTrace(); } }
-	 * 
-	 * @After(order = 0) // @After(order = 0) // public static void fecharBrowser()
-	 * { Apoio.wait(3500); driver.quit(); //
-	 * System.out.println("Fim do caso de teste!"); } //
-	 */
+	
+	
 }

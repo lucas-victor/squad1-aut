@@ -49,6 +49,13 @@ public class ConsultaPlataformasIdSteps {
 			ElementMap.clickTreeGSM_SmartKeyHuawei_LSMS01();
 			Reporter.addStepLog("Selecionada plataforma: LSMS01");
 			break;
+			
+		case "IMS SAM01":
+			ElementMap.clickTreeFixa();
+			ElementMap.clickTreeFixa_IMS();
+			ElementMap.clickTreeFixa_IMS_SAM01();
+			Reporter.addStepLog("Selecionada plataforma: SAM01");
+			break;
 		
 		default:
 			break;
