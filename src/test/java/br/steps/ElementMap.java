@@ -38,39 +38,32 @@ public class ElementMap {
 	public static Scenario scenario;
 	final static int CHROMEDRIVER = 1;
 	final static int FIREFOXDRIVER = 2;
+	final static String NORMAL = "normal";
+	final static String HEADLESS = "headless";
 
 	// Metodos
 	@Test
 	public static void efetuaLogin() {
-
 		// instancia o driver. 1 = chrome, 2 = firefox
-		driver = TestRule.initDriver(CHROMEDRIVER);
-
+		driver = TestRule.initDriver(CHROMEDRIVER, HEADLESS);
 		// maximiza tela
 		// driver.manage().window().maximize();
-
 		// Acessa a url.
 		driver.get("https://www.google.com.br/");
-
 		Apoio.wait(1000);
-
 	}
 
 	@Test
 	public static void efetuaLoginConsulta() {
-
 		// instancia o driver.
-		driver = TestRule.initDriver(CHROMEDRIVER);
-
+		driver = TestRule.initDriver(CHROMEDRIVER, HEADLESS);
 		// Acessa a url.
 		driver.get("http://10.121.216.69:7003/sisativacao/#/home");
-
 		// add token na url.
 		LocalStorage local = ((WebStorage) driver).getLocalStorage();
 		local.setItem("token",
 				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsIkF1dGgiOnsiZW1haWwiOiJwZWRyby5jb3N0YUBzcXVhZHJhLmNvbS5iciIsImxvZ2luIjoicGVkcm8iLCJuYW1lIjoicGVkcm8iLCJwcm9maWxlIjoiQURNSU5JU1RSQURPUiAtIEFETUlOSVNUUkFET1IiLCJyb2xlcyI6WyJST0xFX1JBU1RSRUFCSUxJREFERV9WSUVXIiwiUk9MRV9SRVNQT1NUQV9WSUVXX1VQREFURSIsIlJPTEVfUkVTUE9TVEFfRVNQRUNJRklDQV9WSUVXX1VQREFURSIsIlJPTEVfRUxFTUVOVE9fUkVERV9WSUVXX1VQREFURSIsIlJPTEVfQVVESVRPUklBX1ZJRVciLCJST0xFX01BUEVBTUVOVE9fVklFV19VUERBVEUiLCJST0xFX0NPTkZJR1VSQUNBT19ISVNUT1JJQ09fVklFV19VUERBVEUiLCJST0xFX0xJTVBBX0NBQ0hFX1ZJRVdfVVBEQVRFIiwiUk9MRV9QRVJGSUxfVklFV19VUERBVEUiLCJST0xFX0hMUl9HVEhMUl9PQ0NGX1ZJRVdfVVBEQVRFIiwiUk9MRV9TUEFfR1RUX0dUU19NQVRfVklFV19VUERBVEUiLCJST0xFX0NOX1BSRUZJWF9HVFRfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xETl9MRElfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xESV9WSUVXX1VQREFURSIsIlJPTEVfVFBfQ1NQT19SU1RfTEROX1ZJRVdfVVBEQVRFIiwiUk9MRV9WUE5fSURfVklFV19VUERBVEUiLCJST0xFX1NBX0FQTl9QRFBJRF9WSUVXX1VQREFURSIsIlJPTEVfQ05fT0NDRl9WSUVXX1VQREFURSIsIlJPTEVfUkVURU5DQU9fSExSX1ZJRVdfVVBEQVRFIiwiUk9MRV9SRVRFTkNBT19DTl9QUkVGSVhPX1ZJRVdfVVBEQVRFIiwiUk9MRV9HVFRfT1BfU0VSVl9OQU1FX1ZJRVdfVVBEQVRFIiwiUk9MRV9ST1VfUExBTk9fQ05fVklFV19VUERBVEUiLCJST0xFX1JFVEVOQ0FPX0NOX1ZJRVdfVVBEQVRFIiwiUk9MRV9QQVJTRVJfU0VSVl9BUFJPVl9WSUVXX1VQREFURSIsIlJPTEVfUEFSU0VSX1BBUkFNX1ZJRVdfVVBEQVRFIiwiUk9MRV9DQVBUQ0hBX1ZJRVciLCJST0xFX0hMUiBOb2tpYV9WSUVXIiwiUk9MRV9TbWFydEtleSBIdWF3ZWlfVklFVyIsIlJPTEVfU01TQyBBY2lzaW9uX1ZJRVciLCJST0xFX1VEUiBOb2tpYV9WSUVXIiwiUk9MRV9WTVMgTm92aXRlY2hfVklFVyIsIlJPTEVfUENSRiBIdWF3ZWlfVklFVyIsIlJPTEVfT0NTIEh1YXdlaV9WSUVXIiwiUk9MRV9JTl9WSUVXIiwiUk9MRV9OR04gUjJfVklFVyIsIlJPTEVfSU1TX1ZJRVciLCJST0xFX1Ryb3BpY29fVklFVyIsIlJPTEVfQU1fTkdOUjJfVklFVyJdfX0.eyJwcm9maWxlIjoiQURNSU5JU1RSQURPUiAtIEFETUlOSVNUUkFET1IiLCJyb2xlcyI6WyJST0xFX1JBU1RSRUFCSUxJREFERV9WSUVXIiwiUk9MRV9SRVNQT1NUQV9WSUVXX1VQREFURSIsIlJPTEVfUkVTUE9TVEFfRVNQRUNJRklDQV9WSUVXX1VQREFURSIsIlJPTEVfRUxFTUVOVE9fUkVERV9WSUVXX1VQREFURSIsIlJPTEVfQVVESVRPUklBX1ZJRVciLCJST0xFX01BUEVBTUVOVE9fVklFV19VUERBVEUiLCJST0xFX0NPTkZJR1VSQUNBT19ISVNUT1JJQ09fVklFV19VUERBVEUiLCJST0xFX0xJTVBBX0NBQ0hFX1ZJRVdfVVBEQVRFIiwiUk9MRV9QRVJGSUxfVklFV19VUERBVEUiLCJST0xFX0hMUl9HVEhMUl9PQ0NGX1ZJRVdfVVBEQVRFIiwiUk9MRV9TUEFfR1RUX0dUU19NQVRfVklFV19VUERBVEUiLCJST0xFX0NOX1BSRUZJWF9HVFRfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xETl9MRElfVklFV19VUERBVEUiLCJST0xFX1RQX0NTUE9fUlNUX0xESV9WSUVXX1VQREFURSIsIlJPTEVfVFBfQ1NQT19SU1RfTEROX1ZJRVdfVVBEQVRFIiwiUk9MRV9WUE5fSURfVklFV19VUERBVEUiLCJST0xFX1NBX0FQTl9QRFBJRF9WSUVXX1VQREFURSIsIlJPTEVfQ05fT0NDRl9WSUVXX1VQREFURSIsIlJPTEVfUkVURU5DQU9fSExSX1ZJRVdfVVBEQVRFIiwiUk9MRV9SRVRFTkNBT19DTl9QUkVGSVhPX1ZJRVdfVVBEQVRFIiwiUk9MRV9HVFRfT1BfU0VSVl9OQU1FX1ZJRVdfVVBEQVRFIiwiUk9MRV9ST1VfUExBTk9fQ05fVklFV19VUERBVEUiLCJST0xFX1JFVEVOQ0FPX0NOX1ZJRVdfVVBEQVRFIiwiUk9MRV9QQVJTRVJfU0VSVl9BUFJPVl9WSUVXX1VQREFURSIsIlJPTEVfUEFSU0VSX1BBUkFNX1ZJRVdfVVBEQVRFIiwiUk9MRV9DQVBUQ0hBX1ZJRVciLCJST0xFX0hMUiBOb2tpYV9WSUVXIiwiUk9MRV9TbWFydEtleSBIdWF3ZWlfVklFVyIsIlJPTEVfU01TQyBBY2lzaW9uX1ZJRVciLCJST0xFX1VEUiBOb2tpYV9WSUVXIiwiUk9MRV9WTVMgTm92aXRlY2hfVklFVyIsIlJPTEVfUENSRiBIdWF3ZWlfVklFVyIsIlJPTEVfT0NTIEh1YXdlaV9WSUVXIiwiUk9MRV9JTl9WSUVXIiwiUk9MRV9OR04gUjJfVklFVyIsIlJPTEVfSU1TX1ZJRVciLCJST0xFX1Ryb3BpY29fVklFVyIsIlJPTEVfQU1fTkdOUjJfVklFVyJdLCJpc3MiOiJTcU9pU2lzQXRpdmFjYW8iLCJub21lIjoicGVkcm8iLCJleHAiOjE1OTc2MDQ1MzAsImxvZ2luIjoicGVkcm8iLCJlbWFpbCI6InBlZHJvLmNvc3RhQHNxdWFkcmEuY29tLmJyIn0.Z0iO8Qu47wY-wrzim90RgpjMQFyy_LFHtqhY0Rz3J_Y");
 		driver.navigate().refresh();
-
 	}
 
 	@Test
@@ -101,7 +94,7 @@ public class ElementMap {
 
 		radio.click();
 	}
-	
+
 	public static void verificaQueExibiraDados() {
 		boolean tela = driver.findElement(By.xpath("//*[@class=\"pi pi-minus\"]")).isDisplayed();
 		if (!tela) {
@@ -120,22 +113,23 @@ public class ElementMap {
 
 		Assert.assertEquals(msgEsperada, msgAtual);
 	}
-	
+
 	@Test
 	public static void validaMsgCampoTerminal(String iniMsg, int num, String fimMsg) {
-		
+
 		String msgEsperada = iniMsg + "\"" + num + "\"" + fimMsg;
-		
+
 		WebElement msg = driver.findElement(By.xpath("//*[@class=\"ui-messages-error ui-corner-all\"]"));
 		String msgAtual = msg.getText();
-		
+
 		System.out.println("Mensagem esperada: " + msgEsperada);
 		Assert.assertEquals(msgEsperada, msgAtual);
 	}
-	
+
 	@Test
 	public static void validaMsgPlataformaInvalida(String msgEsperada) {
-		WebElement msg = driver.findElement(By.cssSelector("body > app-root > sis-notificacao > p-toast > div > p-toastitem > div > div > div > div.ui-toast-detail"));
+		WebElement msg = driver.findElement(By.cssSelector(
+				"body > app-root > sis-notificacao > p-toast > div > p-toastitem > div > div > div > div.ui-toast-detail"));
 		String msgAtual = msg.getText();
 
 		Assert.assertEquals(msgEsperada, msgAtual);
@@ -148,7 +142,7 @@ public class ElementMap {
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(1) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
 		gsm.click();
 	}
-	
+
 	@Test
 	public static void clickTreeFixa() {
 		// clica no item GSM da arvore.
@@ -156,7 +150,7 @@ public class ElementMap {
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
 		fixa.click();
 	}
-	
+
 	@Test
 	public static void clickTreeFixa_IMS() {
 		// clica no item GSM da arvore.
@@ -164,7 +158,7 @@ public class ElementMap {
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > ul > p-treenode:nth-child(2) > li > div > span.ui-tree-toggler.pi.pi-fw.ui-unselectable-text.pi-caret-right"));
 		ims.click();
 	}
-	
+
 	@Test
 	public static void clickTreeFixa_IMS_SAM01() {
 		// clica no item GSM da arvore.
@@ -172,7 +166,6 @@ public class ElementMap {
 				"body > app-root > div > app-consulta-plataforma-list > div > div > div > div > div.col-sm-3.col-md-3.container > app-filtro-consulta > div > div > div.card-body.elementoAltura > form > p-tree > div > ul > p-treenode:nth-child(2) > li > ul > p-treenode:nth-child(2) > li > ul > p-treenode > li > div > div > div"));
 		sam01.click();
 	}
-	
 
 	@Test
 	public static void clickTreeGSM_VMSnovitech() {
@@ -413,16 +406,21 @@ public class ElementMap {
 
 		Reporter.addStepLog("Dados verificados na tela: ");
 		// Itera nas tags tr para fazer o assert no resultado.
-		int count = 0;
-		for (WebElement element : linhasTabela) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultTabela.get(count).toString());
+		if (linhasTabela.isEmpty()) {
+			Assert.assertEquals(resultTabela.get(0).toString(), "");
+		} else {
+			int count = 0;
+			for (WebElement element : linhasTabela) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultTabela.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultTabela.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultTabela.get(count).toString(), result);
+				count++;
+			}
 		}
+
 	}
 
 	@Test
@@ -536,30 +534,37 @@ public class ElementMap {
 		List<WebElement> linhasResumo = tabelaResumo.findElements(By.cssSelector("tr"));
 		// Itera fazendo asserts nos resultados linha a linha.
 		int count = 0;
-		for (WebElement element : linhasResumo) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultResumo.get(count).toString());
+		if (linhasResumo.isEmpty()) {
+			Assert.assertEquals(resultResumo.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasResumo) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultResumo.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultResumo.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultResumo.get(count).toString(), result);
+				count++;
+			}
 		}
-
 		Reporter.addStepLog("Aba 1: ");
 		clickAba1();
 		Apoio.wait(500);
 		WebElement tabelaAba1 = driver.findElement(By.xpath("//*[@id=\"ui-tabpanel-1\"]"));
 		List<WebElement> linhasAba1 = tabelaAba1.findElements(By.cssSelector("tr"));
 		count = 0;
-		for (WebElement element : linhasAba1) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultAba1.get(count).toString());
+		if (linhasAba1.isEmpty()) {
+			Assert.assertEquals(resultAba1.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasAba1) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultAba1.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultAba1.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultAba1.get(count).toString(), result);
+				count++;
+			}
 		}
 
 		Reporter.addStepLog("Aba 2: ");
@@ -568,14 +573,18 @@ public class ElementMap {
 		WebElement tabelaAba2 = driver.findElement(By.xpath("//*[@id=\"ui-tabpanel-2\"]"));
 		List<WebElement> linhasAba2 = tabelaAba2.findElements(By.cssSelector("tr"));
 		count = 0;
-		for (WebElement element : linhasAba2) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultAba2.get(count).toString());
+		if (linhasAba2.isEmpty()) {
+			Assert.assertEquals(resultAba2.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasAba2) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultAba2.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultAba2.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultAba2.get(count).toString(), result);
+				count++;
+			}
 		}
 
 		Reporter.addStepLog("Aba 3: ");
@@ -584,32 +593,38 @@ public class ElementMap {
 		WebElement tabelaAba3 = driver.findElement(By.xpath("//*[@id=\"ui-tabpanel-3\"]"));
 		List<WebElement> linhasAba3 = tabelaAba3.findElements(By.cssSelector("tr"));
 		count = 0;
-		for (WebElement element : linhasAba3) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultAba3.get(count).toString());
+		if (linhasAba3.isEmpty()) {
+			Assert.assertEquals(resultAba3.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasAba3) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultAba3.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultAba3.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultAba3.get(count).toString(), result);
+				count++;
+			}
 		}
-
 		Reporter.addStepLog("Aba 4: ");
 		clickAba4();
 		Apoio.wait(500);
 		WebElement tabelaAba4 = driver.findElement(By.xpath("//*[@id=\"ui-tabpanel-4\"]"));
 		List<WebElement> linhasAba4 = tabelaAba4.findElements(By.cssSelector("tr"));
 		count = 0;
-		for (WebElement element : linhasAba4) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultAba4.get(count).toString());
+		if (linhasAba4.isEmpty()) {
+			Assert.assertEquals(resultAba4.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasAba4) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultAba4.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultAba4.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultAba4.get(count).toString(), result);
+				count++;
+			}
 		}
-
 		Reporter.addStepLog("Aba 5: ");
 		clickAba5();
 		Apoio.wait(500);
@@ -617,14 +632,18 @@ public class ElementMap {
 		List<WebElement> linhasAba5 = tabelaAba5.findElements(By.cssSelector("tr"));
 
 		count = 0;
-		for (WebElement element : linhasAba5) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultAba5.get(count).toString());
+		if (linhasAba5.isEmpty()) {
+			Assert.assertEquals(resultAba5.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasAba5) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultAba5.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultAba5.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultAba5.get(count).toString(), result);
+				count++;
+			}
 		}
 	}
 
@@ -649,14 +668,18 @@ public class ElementMap {
 
 		Reporter.addStepLog("Dados verificados na tela: ");
 		int count = 0;
-		for (WebElement element : linhasVms) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultVms04.get(count).toString());
+		if (linhasVms.isEmpty()) {
+			Assert.assertEquals(resultVms04.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasVms) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultVms04.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultVms04.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultVms04.get(count).toString(), result);
+				count++;
+			}
 		}
 	}
 
@@ -674,14 +697,18 @@ public class ElementMap {
 
 		Reporter.addStepLog("Dados verificados na tela: ");
 		int count = 0;
-		for (WebElement element : linhasLsms) {
-			String result = element.getText();
-			System.out.println("resultAct: " + result);
-			System.out.println("resultExp: " + resultLsms01.get(count).toString());
+		if (linhasLsms.isEmpty()) {
+			Assert.assertEquals(resultLsms01.get(0).toString(), "");
+		} else {
+			for (WebElement element : linhasLsms) {
+				String result = element.getText();
+				System.out.println("resultAct: " + result);
+				System.out.println("resultExp: " + resultLsms01.get(count).toString());
 
-			Reporter.addStepLog(result);
-			Assert.assertEquals(resultLsms01.get(count).toString(), result);
-			count++;
+				Reporter.addStepLog(result);
+				Assert.assertEquals(resultLsms01.get(count).toString(), result);
+				count++;
+			}
 		}
 	}
 
@@ -711,7 +738,7 @@ public class ElementMap {
 
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			
+
 			String pathPrint = System.getProperty("user.dir") + "/target/relatorios/screenshot/";
 			String nomePrint = "_" + dateFormat.format(data) + ".jpg";
 			FileUtils.copyFile(file, new File(pathPrint + nomePrint));
@@ -725,6 +752,4 @@ public class ElementMap {
 
 	}
 
-	
-	
 }
