@@ -1,6 +1,7 @@
 package br.steps;
 
 
+import br.maps.ElementMap;
 import cucumber.api.java.en.When;
 
 public class ConsultaPlataformasCpfCnpjSteps {

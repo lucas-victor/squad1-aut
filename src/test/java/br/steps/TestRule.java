@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -27,7 +29,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.cucumber.listener.Reporter;
 
-import br.runners.Apoio;
+import br.utils.Apoio;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -35,15 +37,12 @@ import cucumber.api.java.Before;
 public class TestRule {
 
 	private static WebDriver driver;
-	private static ExtentHtmlReporter htmlReporter;
-	private static ExtentReports extentReport;
-	private static ExtentTest extentTest;
 	public static Scenario scenario;
 
-	private static String pathChromeDriverWin =  System.getProperty("user.dir") + "\\src\\test\\resources\\chromedriver\\chromedriver.exe";
-	private static String pathChromeDriverLinux = System.getProperty("user.dir") + "//src//test//resources//chromedriver//chromedriver";
-	private static String pathFirefoxDriverWin = System.getProperty("user.dir") + "\\src\\test\\resources\\firefoxdriver\\geckodriver.exe";
-	private static String pathFirefoxDriverLinux = System.getProperty("user.dir") + "//src//test//resources//firefoxdriver//geckodriver";
+	private static String pathChromeDriverWin =  System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\chromedriver.exe";
+	private static String pathChromeDriverLinux = System.getProperty("user.dir") + "//src//test//resources//drivers//chromedriver";
+	private static String pathFirefoxDriverWin = System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\geckodriver.exe";
+	private static String pathFirefoxDriverLinux = System.getProperty("user.dir") + "//src//test//resources//drivers//geckodriver";
 	
 	// Pega driver pro SO utilizado.
 	public static WebDriver initDriver(int numDriver, String modo) {
@@ -150,6 +149,9 @@ public class TestRule {
 	 * wait.until(ExpectedConditions.visibilityOf(elementToWaitFor)); }
 	 */
 	
+	
+	
+	
     public static WebElement getParent(WebElement element) {
         return element.findElement(By.xpath(".."));
     }
@@ -177,7 +179,7 @@ public class TestRule {
 
 	@Before(order = 0)
 	public void beforeCenario(Scenario cenario) throws IOException {
-
+		System.out.println("Inicializando teste before");
 		// System.out.println("Inicializando Teste...");
 		// Compactador.compactarRelatorio();
 		/*
