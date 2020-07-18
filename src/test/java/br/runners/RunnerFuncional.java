@@ -1,10 +1,15 @@
 package br.runners;
 
+import java.io.File;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+import com.cucumber.listener.Reporter;
+
 import br.relatorio.Relatorio;
+import br.steps.TestRule;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -29,7 +34,21 @@ public class RunnerFuncional {
 	@AfterClass
 	public static void writeExtentReport() throws Exception {
 		//gera o Relatorio
-		Relatorio.geraRelatorio();
+		//Relatorio.geraRelatorio();
+		
+		Reporter.loadXMLConfig(new File(TestRule.getReportConfigPath()));
+		Reporter.setSystemInfo("Author", "Lucas Victor");
+		Reporter.setSystemInfo("User Name", "Squadra");
+		Reporter.setSystemInfo("Time zone", System.getProperty("user.timezone"));
+		Reporter.setSystemInfo("Selenium", "3.11.0");
+		Reporter.setSystemInfo("Cucumber", "1.2.5");
+		Reporter.setSystemInfo("JUnit", "1.2.6");
+		Reporter.setSystemInfo("Java", "1.8.0_251");
+		Reporter.setSystemInfo("Browser", "Chrome");
+		
+		//Gera o relatorio.
+		Reporter.getExtentReport().flush();	
+		
 		//faz backup do relatorio gerado.
 		Relatorio.zipFolder();
 	}

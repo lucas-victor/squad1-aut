@@ -47,7 +47,7 @@ public class ElementMap {
 	@Test
 	public static void efetuaLoginConsulta() {
 		// instancia o driver.
-		driver = TestRule.initDriver(CHROMEDRIVER, HEADLESS);
+		driver = TestRule.initDriver(CHROMEDRIVER, NORMAL);
 		// Acessa a url.
 		driver.get("http://10.121.216.69:7003/sisativacao/#/home");
 		// add token na url.

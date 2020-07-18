@@ -216,7 +216,6 @@ public class TestRule {
 
 	@After(order = 0) // @After(order = 0) //
 	public static void fecharBrowser() {
-		Apoio.wait(1000);
 		driver.quit();
 	}
 }
